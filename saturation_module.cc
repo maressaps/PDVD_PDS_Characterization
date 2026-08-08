@@ -129,8 +129,7 @@ namespace opdet {
     // Read configuration parameters from the FHiCL file.
     fOpDetWaveformLabel = pset.get<std::string>("OpDetWaveformLabel","");
     fDynamicRange       = pset.get<float>("DynamicRange"); // maximum ADC value of the detector in bits
-    // These measured baseline values are later used to shift the effective ADC
-    // saturation threshold relative to the reference baseline of each channels.
+    // The original simulation was done with a baseline of 1864 ADC. To be more comparable to the data, we implement channel dependent baselines.
     baselineMap.insert(std::make_pair(1010, 2940.9));
     baselineMap.insert(std::make_pair(1011, 3035.2));
     baselineMap.insert(std::make_pair(1020, 2462.0));
